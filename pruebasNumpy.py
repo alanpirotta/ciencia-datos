@@ -101,3 +101,125 @@ np.all(ran50 >50)
 np.all(ran50condicionado >50)
 np.any(ran50condicionado <50)
 np.any(ran50 <50)
+calificaciones = np.random.randint(1, 11, 10)
+calificaciones
+#Se aprueba con 7 o más
+aprobacion = np.where(
+calificaciones >= 7,
+'Felicidades, aprobaste!',
+'La materia está reprobada')
+aprobacion
+condiciones = [
+(calificaciones == 10),
+( (calificaciones == 9) | (calificaciones == 8) ),
+(calificaciones == 7),
+(calificaciones < 7),
+]
+opciones = [
+('Sobresaliente!'),
+('Destacado'),
+('Aprobado'),
+('Desaprobado')
+]
+estado = np.select(condiciones, opciones)
+estado
+calificaciones  = np.append(calificaciones,7)
+condiciones = [
+(calificaciones == 10),
+( (calificaciones == 9) | (calificaciones == 8) ),
+(calificaciones == 7),
+(calificaciones < 7),
+]
+estado = np.select(condiciones, opciones)
+estado
+# Crear y leer archivos
+txt = np.random.randint(0,10,10)
+txt
+np.savetxt('desdeIPython.txt',txt)
+get_ipython().run_line_magic('ls', '')
+get_ipython().run_line_magic('load', 'desdeIPython.txt')
+# %load desdeIPython.txt
+9.000000000000000000e+00
+7.000000000000000000e+00
+0.000000000000000000e+00
+9.000000000000000000e+00
+3.000000000000000000e+00
+1.000000000000000000e+00
+5.000000000000000000e+00
+4.000000000000000000e+00
+9.000000000000000000e+00
+9.000000000000000000e+00
+np.savetxt('desdeIPython.txt',a, fmt='%i')
+np.savetxt('desdeIPython.txt', txt, fmt='%i')
+get_ipython().run_line_magic('load', 'desdeIPython.txt')
+# %load desdeIPython.txt
+9
+7
+0
+9
+3
+1
+5
+4
+9
+9
+#convierte los complejos en enteros
+#leer un archivo dek sisstema
+np.loadtxt('desdeIPython.txt')
+txtCargado = np.loadtxt('desdeIPython.txt')
+txtCargado
+#para matrices trabajar con csv
+txt.size
+txt.reshape( (2,5) )
+#convertí en matriz de 2 filas 5 columnas 
+matriz = txt.reshape( (2,5) )
+np.save('matriz.csv',matriz,delimeter=',')
+np.savetxt('matriz.csv',matriz,delimeter=',')
+np.savetxt('matriz.csv', matriz, delimiter=',')
+get_ipython().run_line_magic('ls', '')
+loadtxt('matriz.csv')
+np.loadtxt('matriz.csv')
+get_ipython().run_line_magic('load', 'matriz.csv')
+# %load matriz.csv
+9.000000000000000000e+00,7.000000000000000000e+00,0.000000000000000000e+00,9.000000000000000000e+00,3.000000000000000000e+00
+1.000000000000000000e+00,5.000000000000000000e+00,4.000000000000000000e+00,9.000000000000000000e+00,9.000000000000000000e+00
+np.savetxt('matriz.csv', matriz, delimiter=',', fmt='%i')
+d = np.loadtxt('matriz.csv', delimiter=',')
+d
+#save-load para archivos binarios y savetxt-loadtxt texto plano
+np.save('arreglo_binario.npy', txt)
+get_ipython().run_line_magic('ls', '')
+loadBinario = np.load('arreglo_binario.npy')
+loadBinario
+a = np.random.randint(0,10,10)
+a.size
+#los array son más rapidos que las listas al ser inmutables de longitud
+# insert y append
+np.insert(a, 0, 200)
+#insert (array, index, valor)
+np.append(a,200)
+#Hay que guardarlos en una nueva variable (incluso sobreescribir la misma
+a= np.append(a,200)
+a
+np.delete(a, -1)
+a
+a= np.delete(a, -1)
+a
+np.resize(a, 5)
+np.resize(a, 5)
+b = np.array([1,2,3,4,5])
+np.concatenate(a,b)
+np.concatenate( [a,b] )
+np.concatenate( [b,a] )
+a = np.random.randint(0,10,20)
+a
+a.sort()
+a
+a[::-1]
+#ESto último es para ordenar al revés, pero genera uno nuevo
+a = a[::-1]
+a
+b = np.random.randint(0,10,20)
+b
+np.sort(b)
+#Esta funcion sort genera un nuevo arreglo, diferente al método sort
